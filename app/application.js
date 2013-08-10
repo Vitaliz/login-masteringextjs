@@ -5,7 +5,8 @@ Ext.define('Mej2.Application', {
 
     views: [
         'Main',
-        'Viewport'
+        'Viewport',
+        'Login'
     ],
 
     controllers: [

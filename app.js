@@ -36,7 +36,12 @@ Ext.application({
 
             me.splashscreen.next().fadeOut({
                 duration: 1000,
-                remove: true
+                remove: true,
+                listeners: {
+                    afteranimate: function(el, startTime, eOpts ){
+                        Ext.widget('login');
+                    }
+                }
             })
         });
 
