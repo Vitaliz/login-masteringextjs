@@ -4,11 +4,12 @@ Ext.define('Mej2.Application', {
     extend: 'Ext.app.Application',
 
     views: [
-        // TODO: add views here
+        'Main',
+        'Viewport'
     ],
 
     controllers: [
-        // TODO: add controllers here
+        'Main'
     ],
 
     stores: [
