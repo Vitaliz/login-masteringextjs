@@ -3,7 +3,7 @@ Ext.define('Mej2.view.Login', {
     alias: 'widget.login',
 
     autoShow: true,
-    width: 360,
+    width: 375,
     height: 170,
     layout: {
         type: 'fit'
