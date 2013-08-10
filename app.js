@@ -11,8 +11,9 @@ Ext.application({
     name: 'Mej2',
 
     extend: 'Mej2.Application',
-    
-    splashscreen: {},
+
+    // The splashscreen property is not necessary because it isn't refered to outside this scope. splashscreen gets created in init function.
+    //splashscreen: {},
 
     init: function () {
 
