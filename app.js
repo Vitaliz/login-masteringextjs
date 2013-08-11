@@ -23,9 +23,8 @@ Ext.application({
             customPass: function (value, field) {
                 return /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})/.test(value);
             },
-            customPassText: 'Not a valid password. ' +
-            'Password must contain one digit, one letter lowercase, one letter uppercase, ' + 
-            'one special symbol @#$% and between 6 and 20 characters.'
+            customPassText: '1 digit, 1 symbol @#$%, ' + 
+            '1 lower and 1 uppercase letter.'
         });
         
         // Open the login.
