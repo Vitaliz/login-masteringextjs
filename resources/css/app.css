@@ -3,3 +3,8 @@
     background-color: #f5f5f5;
     opacity: 1;
 }
+
+/* Login */
+.key {
+    background-image: url('../icons/key.png') !important;
+}
