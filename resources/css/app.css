@@ -8,3 +8,9 @@
 .key {
     background-image: url('../icons/key.png') !important;
 }
+.key-go {
+    background-image: url('../icons/key_go.png') !important;
+}
+.cancel {
+    background-image: url('../icons/cancel.png') !important;
+}
