@@ -17,10 +17,10 @@ Ext.application({
     ],
     
     // Flag to show splashscreen loading animation or to skip it.
-    splashscreen: false,
+    showSplashscreen: true,
 
     init: function () {
-        if (this.splashscreen) {
+        if (this.showSplashscreen) {
             // Initialise a splashscreen.
             this.splashscreen = Ext.getBody().mask('Loading, please wait...', 'splashscreen');
             this.splashscreen.addCls('splashscreen');
@@ -42,7 +42,7 @@ Ext.application({
         });
         
         // Fade in and out the splashscreen and the interface of the app (login first).
-        if (me.splashscreen) {
+        if (me.showSplashscreen) {
             task = new Ext.util.DelayedTask(function () {
 
                 me.splashscreen.fadeOut({
@@ -66,7 +66,7 @@ Ext.application({
         }
         
         // No loading animation, show the login asap.
-        if (!me.splashscreen) {
+        if (!me.showSplashscreen) {
             Ext.widget('login');
         }
     }
