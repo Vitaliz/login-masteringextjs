@@ -17,7 +17,7 @@ Ext.application({
     ],
     
     // Flag to show splashscreen loading animation or to skip it.
-    showSplashscreen: true,
+    showSplashscreen: false,
 
     init: function () {
         if (this.showSplashscreen) {
@@ -34,10 +34,10 @@ Ext.application({
         // Custom validation for password fields.
         // todo: refactor in its own js file.
         Ext.apply(Ext.form.field.VTypes, {
-            customPass: function (value, field) {
+            passwordValidation: function (value, field) {
                 return /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})/.test(value);
             },
-            customPassText: '1 digit, 1 symbol @#$%, ' + 
+            passwordValidationText: '1 digit, 1 symbol @#$%, ' + 
             '1 lower and 1 uppercase letter.'
         });
         
