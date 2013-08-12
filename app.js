@@ -15,8 +15,22 @@ Ext.application({
     requires: [
         'Ext.form.field.VTypes'
     ],
+    
+    // Flag to show splashscreen loading animation or to skip it.
+    splashscreen: false,
+
+    init: function () {
+        if (this.splashscreen) {
+            // Initialise a splashscreen.
+            this.splashscreen = Ext.getBody().mask('Loading, please wait...', 'splashscreen');
+            this.splashscreen.addCls('splashscreen');
+        }
+    },
 
     launch: function () {
+        // me is a reference to the current scope, otherwise the callback will lose track of this.
+        var me = this, task;
+        
         // Custom validation for password fields.
         // todo: refactor in its own js file.
         Ext.apply(Ext.form.field.VTypes, {
@@ -27,7 +41,33 @@ Ext.application({
             '1 lower and 1 uppercase letter.'
         });
         
-        // Open the login.
-        Ext.widget('login');
+        // Fade in and out the splashscreen and the interface of the app (login first).
+        if (me.splashscreen) {
+            task = new Ext.util.DelayedTask(function () {
+
+                me.splashscreen.fadeOut({
+                    duration: 1000,
+                    remove: true
+                });
+
+                me.splashscreen.next().fadeOut({
+                    duration: 1000,
+                    remove: true,
+                    listeners: {
+                        afteranimate: function(el, startTime, eOpts ){
+                            // Open the login.
+                            Ext.widget('login');
+                        }
+                    }
+                })
+            });
+
+            task.delay(2000);
+        }
+        
+        // No loading animation, show the login asap.
+        if (!me.splashscreen) {
+            Ext.widget('login');
+        }
     }
 });
